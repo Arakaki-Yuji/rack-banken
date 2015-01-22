@@ -10,8 +10,8 @@ module Rack
         begin
           @app.call(env)
 
-        rescue Exceptions::ValidationFailed => e
-          raise Exceptions::ValidationFailed, e.message
+        rescue Exceptions::Base => e
+          raise e.class, e.message
 
         rescue => e
           raise Exceptions::InternalServerError, e.message
