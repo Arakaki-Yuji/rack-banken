@@ -6,9 +6,11 @@ module Rack
     require "json"
 
     require "rack/banken/exception_handler"
-
     require "rack/banken/exceptions/base"
-    require "rack/banken/exceptions/internal_server_error"
-    require "rack/banken/exceptions/validation_failed"
+    require "rack/banken/dsl"
+
+    Dir[::File.expand_path('../banken/exceptions', __FILE__) << '/*.rb'].each do |file|
+      require file
+    end
   end
 end
