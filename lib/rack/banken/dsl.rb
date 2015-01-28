@@ -31,7 +31,7 @@ module Rack
 
     class Request
       attr_accessor :path, :method
-      attr_reader :description, :properties
+      attr_reader :properties
 
       def initialize(path, method)
         self.path = path
@@ -41,6 +41,10 @@ module Rack
 
       def description(desc)
         @description = desc
+      end
+
+      def get_description
+        @description
       end
 
       def property(name, &block)
@@ -48,13 +52,12 @@ module Rack
         property.instance_eval &block
         @properties << property
       end
-
     end
 
     class Response
 
       attr_accessor :path, :method
-      attr_reader :description, :properties
+      attr_reader :properties
 
       def initialize(path, method)
         self.path = path
@@ -64,6 +67,10 @@ module Rack
 
       def description(desc)
         @description = desc
+      end
+
+      def get_description
+        @description
       end
 
       def property(name, &block)
@@ -98,6 +105,23 @@ module Rack
       def regexp(regexp_str)
         @regexp = regexp_str
       end
+
+      def get_description
+        @description
+      end
+
+      def get_example
+        @example
+      end
+
+      def get_type
+        @type
+      end
+
+      def get_regexp
+        @regexp
+      end
+
     end
   end
 end

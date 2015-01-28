@@ -13,7 +13,7 @@ Rack::Banken::DSL.request path: '/api/v1/self/weights', method: 'POST' do
   end
 
   property :weight do
-    description "weight number. unit is `kg`f"
+    description "weight number. unit is `kg`"
     example 54.9
     type :number
     regexp /^\d{1,3}\.\d{1}$/
