@@ -2,29 +2,29 @@ module Rack
   module Banken
     class DSL
 
-      @@requests = []
-      @@responses = []
+      @requests = []
+      @responses = []
 
       def self.request(path: , method: , &block)
         request = Request.new(path, method)
         request.instance_eval &block
 
-        @@requests << request
+        @requests << request
       end
 
       def self.response(path: , method: , &block)
         response = Response.new(path, method)
         response.instance_eval &block
 
-        @@responses << response
+        @responses << response
       end
 
       def self.requests
-        @@requests
+        @requests
       end
 
       def self.responses
-        @@responses
+        @responses
       end
 
     end
