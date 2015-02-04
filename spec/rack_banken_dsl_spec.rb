@@ -19,7 +19,7 @@ RSpec.describe "Rack::Banken::DSL" do
       end
 
       it "propertyが2つ登録されている" do
-        expect(request.properties.count).to eq(2)
+        expect(request.properties.count).to eq(3)
       end
 
       it "一つめのpropertyにはpropertyブロック内に記載した内容が登録されている" do
@@ -29,7 +29,7 @@ RSpec.describe "Rack::Banken::DSL" do
         expect(property.get_description).to eq("unique identifiler of weight")
         expect(property.get_example).to eq(1)
         expect(property.get_type).to eq(:integer)
-        expect(property.get_regexp).to eq(/[1.]/)
+        expect(property.get_regexp).to eq(/^[1.]$/)
       end
 
     end

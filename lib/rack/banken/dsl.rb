@@ -52,6 +52,11 @@ module Rack
         property.instance_eval &block
         @properties << property
       end
+
+      def required_properties
+        @properties.select {|p| p.get_required == true }
+      end
+      
     end
 
     class Response
@@ -84,7 +89,7 @@ module Rack
 
     class Property
       attr_accessor :name
-      attr_reader :description, :example, :type, :regexp
+      attr_reader :description, :example, :type, :regexp, :required
 
       def initialize(name)
         self.name = name
@@ -100,6 +105,10 @@ module Rack
 
       def type(type)
         @type = type
+      end
+
+      def required(boolean)
+        @required = boolean
       end
 
       def regexp(regexp_str)
@@ -120,6 +129,10 @@ module Rack
 
       def get_regexp
         @regexp
+      end
+
+      def get_required
+        @required
       end
 
     end

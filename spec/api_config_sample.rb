@@ -9,12 +9,21 @@ Rack::Banken::DSL.request path: '/api/v1/self/weights', method: 'POST' do
     description "unique identifiler of weight"
     example 1
     type :integer
-    regexp /[1.]/
+    regexp /^[1.]$/
+    required true
   end
 
   property :weight do
     description "weight number. unit is `kg`"
     example 54.9
+    type :number
+    regexp /^\d{1,3}\.\d{1}$/
+    required true
+  end
+
+  property :fat_rate do
+    description "fat_rate. unit is `%`"
+    example 14.4
     type :number
     regexp /^\d{1,3}\.\d{1}$/
   end
