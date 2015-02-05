@@ -1,3 +1,4 @@
+# coding: utf-8
 # -*- coding: utf-8 -*-
 # APIの設定ファイルのサンプル
 
@@ -35,6 +36,21 @@ Rack::Banken::DSL.response path: '/api/v1/self/weights', method: 'POST' do
   property :result do
     type :boolean
     example true
+  end
+
+end
+
+
+Rack::Banken::DSL.request path: '/api/v1/image', method: 'POST' do
+  property :image do
+    type :file
+    description "User face image file"
+    required true
+  end
+
+  property :created do
+    type :datetime
+    description "Image created date"
   end
 
 end

@@ -8,6 +8,7 @@ module Rack
     require "rack/banken/exception_handler"
     require "rack/banken/exceptions/base"
     require "rack/banken/dsl"
+    require "rack/banken/validation/type_check"
     require "rack/banken/base_request_handler"
     require "rack/banken/request_validator"
 

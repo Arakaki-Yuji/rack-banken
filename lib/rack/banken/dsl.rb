@@ -56,7 +56,11 @@ module Rack
       def required_properties
         @properties.select {|p| p.get_required == true }
       end
-      
+
+      def find_by_property_by_name(name)
+        @properties.find { |p| p.name.to_s == name }
+      end
+
     end
 
     class Response

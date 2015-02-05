@@ -8,7 +8,7 @@ RSpec.describe "Rack::Banken::DSL" do
   describe "Rack::Banken::DSLの定義ファイルapi_config_sample.rbをロードすると" do
 
     it "requestsが一つ定義されている" do
-      expect(Rack::Banken::DSL.requests.count).to eq(1)
+      expect(Rack::Banken::DSL.requests.count).to eq(2)
     end
 
     describe "requestオブジェクトには" do
